@@ -26,8 +26,12 @@ def confirmation():
 @app.route('/results/')
 def results():
     #we will return top 3 results with color grid and product name
-    #s
     return render_template('results.html')
+
+@app.route('/updatepage/')
+def updatepage():
+    #allows database to be updated
+    return render_template('updatepage.html')
 
 # if __name__ == '__main__':
 #     app.run()
