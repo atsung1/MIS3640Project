@@ -46,6 +46,8 @@ def matchpage():
          <input type=submit value=Upload>
     </form>
     '''
+    # return render_template('matchpage.html')
+
         #f = request.files['the_file']
         # file.save('/var/www/uploads/uploaded_file.txt')
         # return render_template('matchpage.html')
