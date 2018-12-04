@@ -56,5 +56,8 @@ def updatepage():
     #allows database to be updated
     return render_template('updatepage.html')
 
+
+
+
 # if __name__ == '__main__':
 #     app.run()
