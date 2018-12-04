@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = 'C:\Users\atsung1\Documents\Software Design\MIS3640Project'
+UPLOAD_FOLDER ='/tmp'
 
 app.config['DEBUG'] = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -32,10 +32,18 @@ def matchpage():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('uploaded_file',
                                     filename=filename))
+    return '''
+    <!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File</h1>
+    <form method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+    </form>
+    '''
         #f = request.files['the_file']
-        file.save('/var/www/uploads/uploaded_file.txt')
-        return render_template('matchpage.html')
-
+        # file.save('/var/www/uploads/uploaded_file.txt')
+        # return render_template('matchpage.html')
 #users will upload photos on this page
 #will send file back to python and return grid of colors r1 g1 b1 r2 g2 b2 ......
 
