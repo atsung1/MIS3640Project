@@ -80,7 +80,7 @@ def loading():
     # os.chdir('C:/Users/atsung1/Documents/Software Design/MIS3640Project/confirmationimages')
     #establish working directory
     for i in range(len(rgblist)):
-        img = Image.new('RGB', (1,1), color=rgblist[i])
+        img = Image.new('RGB', (1,1), color=tuple(rgblist[i]))
         nametitle = str(i+1)
         img.save(os.path.join(app.config['CONFIRM_FOLDER'], nametitle+'.jpg'),format='JPG')    
     return render_template('loading.html')
