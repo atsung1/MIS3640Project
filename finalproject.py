@@ -10,9 +10,9 @@ os.chdir('C:/Users/atsung1/Documents/Software Design/MIS3640Project')
 
 def getRGB_image(filepath):
     # gets the image pixel array from filepath
-    print(filepath)
+    # print(filepath)
     img_file = Image.open(filepath)
-    img_file.show()
+    # img_file.show()
 
     img = img_file.load()
 
