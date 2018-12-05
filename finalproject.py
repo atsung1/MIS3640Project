@@ -5,7 +5,7 @@ import random
 import csv
 
 # establish working directory
-os.chdir('C:/Users/atsung1/Documents/Software Design/MIS3640Project')
+# os.chdir('C:/Users/atsung1/Documents/Software Design/MIS3640Project')
 # must use a larger file
 
 def getRGB_image(filepath):
@@ -49,9 +49,15 @@ def getRGB_image(filepath):
             for n in range(num_samples):
                 # get random values in the current rectangle and add to list
                 # print(n)
-                [r, g, b] = img[rect_x[n], rect_y[n]]
-                currentRectangle.append([round(r), round(g), round(b)])
-
+                a = 255
+                # if the file is png (RGBA)
+                if len(img[rect_x[n], rect_y[n]]) == 4:
+                    [r, g, b, a] = img[rect_x[n], rect_y[n]]
+                    currentRectangle.append([round(r), round(g), round(b)])
+                # If the file is jpg (RBG)
+                else:
+                    [r, g, b] = img[rect_x[n], rect_y[n]]
+                    currentRectangle.append([round(r), round(g), round(b)])
             # add the current rectangle to the list of all 25
             allRectangles.append([sum(color) / len(color) for color in zip(*currentRectangle)])
 
@@ -59,6 +65,7 @@ def getRGB_image(filepath):
         #     print(n + 1, allRectangles[n])
 
     return allRectangles
+
 
 def getRGB_pixel(filepath):
     # pulls the RGB values of that pixel and returns a list of the RGB code
