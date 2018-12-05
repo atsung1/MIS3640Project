@@ -1,14 +1,24 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from werkzeug.utils import secure_filename
+from finalproject import getRGB_image
+from PIL import Image
+import math
+import random
+import csv
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER ='C:/Users/atsung1/Documents/Software Design/MIS3640Project/submissions'
+UPLOAD_FOLDER ='submissions'
+CONFIRM_FOLDER = 'confirmationimages'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+
+
 
 app.config['DEBUG'] = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['CONFIRM_FOLDER'] = CONFIRM_FOLDER
+
 
 app.secret_key = "Some secret string here"
 
@@ -35,24 +45,45 @@ def matchpage():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('confirmation', filename=filename))
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'userphoto.png'))
+            return redirect(url_for('loading', filename='userphoto.png'))
+    #I basically can't figure out how to link it to matchpage so i made the Match page here below
     return '''
     <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
-    </form>
-    '''
-    # return render_template('matchpage.html')
+    <head>
+        <title>Match Page</title>
+    </head>
+    <body>
+        <h1>Match Page</h1>
 
+        <a>Upload a photo of your skin that you would like The Genie to find a match for!</a><p>
+
+        <a>Select image to upload:</a><br>
+        <form method=post enctype=multipart/form-data>
+        <p><input type=file name=file>
+            <input type=submit value=Upload>
+        </form>
+    </body>
+    '''
         #f = request.files['the_file']
         # file.save('/var/www/uploads/uploaded_file.txt')
         # return render_template('matchpage.html')
-#users will upload photos on this page
-#will send file back to python and return grid of colors r1 g1 b1 r2 g2 b2 ......
+        #users will upload photos on this page
+        #will send file back to python and return grid of colors r1 g1 b1 r2 g2 b2 ......
+
+@app.route('/loading/')
+def loading():
+#this page will display loading stuff
+    # photopath = os.path.abspath()
+    rgblist = getRGB_image('submissions/userphoto.png')
+    #list of rgbs for each rectangle
+    # os.chdir('C:/Users/atsung1/Documents/Software Design/MIS3640Project/confirmationimages')
+    #establish working directory
+    for i in range(len(rgblist)):
+        img = Image.new('RGB', (1,1), color=rgblist[i])
+        nametitle = str(i+1)
+        img.save(os.path.join(app.config['CONFIRM_FOLDER'], nametitle+'.png'),format='PNG')    
+    return render_template('loading.html')
 
 
 @app.route('/confirmation/')
