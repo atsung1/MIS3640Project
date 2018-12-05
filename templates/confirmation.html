@@ -9,9 +9,22 @@
             border:1px solid black;
             border-collapse: collapse;
         }
-        th, td {
-            padding: 15px;
+        #picture{
+            margin: 0;
         }
+        p#hi{
+            background-color: aqua;
+            position:sticky;
+            float: left;}            
+    
+        th.number {
+            padding: 18px;
+        }
+        table{
+            float: left;
+
+        }
+
         </style>
 
 </head>
@@ -20,88 +33,131 @@
         <h1>Confirmation Page</h1>
     <a>This is where our 5x5 grid shows up, and the user picks which color they want</a><br>
     <a>Shows the original input picture, and a colormap 5x5 table, and a reference table next to it with numbers </a><br>
-    <a></a>under it have a drop down box with number 1-25 + a submit button</a><br>
-    <p>Colour Map</p>
-    <table style="float: left;">
+    <a></a>under it have a drop down b1-25 + a submit button</a><br>
+ 
+    <div>
+    <table id="picture" class="table_on_the_left">
+            <tr><th colspan="5">Colour Map</th></tr>
             <tr>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
+                <th><img src="picture-sample.PNG" width="50px"></th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th> <img src="picture-sample.PNG" width="50px"></th>
             </tr>
             <tr>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
             </tr>
             <tr>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
             </tr>
             <tr>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
             </tr>
             <tr>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
+                <th><img src="picture-sample.PNG" width="50px"> </th>
             </tr>
         </table>
-    
-    
-    <p>Reference</p>
-    <table style="float: left;">
+
+    <table id="table_on_the_right">
+        <tr><th colspan="5">Reference</th></tr>
         <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
+            <th class="number">1</th>
+            <th class="number">2</th>
+            <th class="number">3</th>
+            <th class="number">4</th>
+            <th class="number">5</th>
         </tr>
         <tr>
-            <th>6</th>
-            <th>7</th>
-            <th>8</th>
-            <th>9</th>
-            <th>10</th>
+            <th class="number">6</th>
+            <th class="number">7</th>
+            <th class="number">8</th>
+            <th class="number">9</th>
+            <th class="number">50</th>
         </tr>
         <tr>
-            <th>11</th>
-            <th>12</th>
-            <th>13</th>
-            <th>14</th>
-            <th>15</th>
+            <th class="number">11</th>
+            <th class="number">12</th>
+            <th class="number">13</th>
+            <th class="number">14</th>
+            <th class="number">15</th>
         </tr>
         <tr>
-            <th>16</th>
-            <th>17</th>
-            <th>18</th>
-            <th>19</th>
-            <th>20</th>
+            <th class="number">16</th>
+            <th class="number">17</th>
+            <th class="number">18</th>
+            <th class="number">19</th>
+            <th class="number">20</th>
         </tr>
         <tr>
-            <th>21</th>
-            <th>22</th>
-            <th>23</th>
-            <th>24</th>
-            <th>25</th>
+            <th class="number">21</th>
+            <th class="number">22</th>
+            <th class="number">23</th>
+            <th class="number">24</th>
+            <th class="number">25</th>
         </tr>
     </table>
-    
-   <a href ="{{ url_for('results') }}">See my results button</a>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br><br><br><br><br><br><br><br>
+<form action="/action_page.php">
+    <select name="numbers">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
 
+    </select>
+    <br><br>
+    <input type="submit" a href ="{{ url_for('results') }}" value="See my results button"></a>
+  </form>
+<!-- <p id="hi">
+        <a href ="{{ url_for('results') }}">See my results button</a>
+</p> -->
 
 </body>
 
