@@ -1,18 +1,52 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Homepage</title>
+<style>
+.content {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+} 
+a:link, a:visited {
+    background-color: #e0b6d5;
+    color: white;
+    padding: 20px 60px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 200px;
+    left: 50%;
+    top: 50%;
+
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+
+a:hover, a:active {
+    background-color: #d690bb;
+    margin: 20px; margin-top:5px
+}
+
+</style>
 </head>
+<div class="content">
+
+<title>Home</title>
+
+<h1>Makeup Color Matching Genie</h1>
+
+<h2>Welcome to the Skin Genie! Upload an image for the Genie to match or update our database!</h2><br>
+</div>
 
 <body>
-    <h1>Makeup Color Matching Calculator</h1>
-    <a>Insert some sort of description here</a><br>
-    <a href ="{{ url_for('matchpage') }}">Match Page</a><br>
-    <a href ="{{ url_for('updatepage') }}">Update Page</a><br>
-
+        
+<div class="content">
+<p><a href ="{{ url_for('updatepage') }}">Update Page</a></p><br>
+<a href="{{ url_for('matchpage') }}">Match Page </a>
 
 
 </body>
+
 
 </html>
