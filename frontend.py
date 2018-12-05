@@ -45,8 +45,8 @@ def matchpage():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'userphoto.png'))
-            return redirect(url_for('loading', filename='userphoto.png'))
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'userphoto.jpg'))
+            return redirect(url_for('loading', filename='userphoto.jpg'))
     #I basically can't figure out how to link it to matchpage so i made the Match page here below
     return '''
     <!doctype html>
@@ -75,14 +75,14 @@ def matchpage():
 def loading():
 #this page will display loading stuff
     # photopath = os.path.abspath()
-    rgblist = getRGB_image('submissions/userphoto.png')
+    rgblist = getRGB_image('submissions/userphoto.jpg')
     #list of rgbs for each rectangle
     # os.chdir('C:/Users/atsung1/Documents/Software Design/MIS3640Project/confirmationimages')
     #establish working directory
     for i in range(len(rgblist)):
         img = Image.new('RGB', (1,1), color=rgblist[i])
         nametitle = str(i+1)
-        img.save(os.path.join(app.config['CONFIRM_FOLDER'], nametitle+'.png'),format='PNG')    
+        img.save(os.path.join(app.config['CONFIRM_FOLDER'], nametitle+'.jpg'),format='JPG')    
     return render_template('loading.html')
 
 

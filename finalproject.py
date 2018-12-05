@@ -46,11 +46,22 @@ def getRGB_image(filepath):
             rect_y = random.choices(range(y_min, y_max), k=num_samples)
             rect_x = random.choices(range(x_min, x_max), k=num_samples)
 
+            # for n in range(num_samples):
+            #     # get random values in the current rectangle and add to list
+            #     # print(n)
+            #     [r, g, b] = img[rect_x[n], rect_y[n]]
+            #     currentRectangle.append([round(r), round(g), round(b)])
+
             for n in range(num_samples):
                 # get random values in the current rectangle and add to list
                 # print(n)
-                [r, g, b] = img[rect_x[n], rect_y[n]]
-                currentRectangle.append([round(r), round(g), round(b)])
+                a = 255
+                if len(img[rect_x[n], rect_y[n]]) == 4:
+                    [r, g, b, a] = img[rect_x[n], rect_y[n]]
+                    currentRectangle.append([round(r), round(g), round(b)])
+                else:
+                    [r, g, b] = img[rect_x[n], rect_y[n]]
+                    currentRectangle.append([round(r), round(g), round(b)])
 
             # add the current rectangle to the list of all 25
             allRectangles.append([sum(color) / len(color) for color in zip(*currentRectangle)])
@@ -87,7 +98,7 @@ def loadData(filepath):
     for item in raw:
         # skip items that do not have color codes
         if item[2] != "NA":
-            code = getRGB_pixel(item[9])
+            code = getRGB_pixel("productpics/"+str(item[9]))
             item.extend(code)
     # make a connection to the database csv
     with open('Book1.csv', 'w', newline='') as csvfilew:
