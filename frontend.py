@@ -1,14 +1,20 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER ='/tmp'
+UPLOAD_FOLDER ='C:/Users/atsung1/Documents/Software Design/MIS3640Project/submissions'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app.config['DEBUG'] = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 app.secret_key = "Some secret string here"
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/')
 def index():
@@ -30,8 +36,7 @@ def matchpage():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
+            return redirect(url_for('confirmation', filename=filename))
     return '''
     <!doctype html>
     <title>Upload new File</title>
@@ -41,6 +46,8 @@ def matchpage():
          <input type=submit value=Upload>
     </form>
     '''
+    # return render_template('matchpage.html')
+
         #f = request.files['the_file']
         # file.save('/var/www/uploads/uploaded_file.txt')
         # return render_template('matchpage.html')

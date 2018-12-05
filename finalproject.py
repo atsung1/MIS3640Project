@@ -5,7 +5,7 @@ import random
 import csv
 
 # establish working directory
-os.chdir('C:\Users\atsung1\Documents\Software Design\MIS3640Project')
+os.chdir('C:/Users/atsung1/Documents/Software Design/MIS3640Project')
 # must use a larger file
 
 def getRGB_image(filepath):
