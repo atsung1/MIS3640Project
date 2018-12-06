@@ -108,10 +108,10 @@ def confirmation(filename):
             new_item.append(int(rgblist[i][j]))
         new_rgblist.append(new_item)
     #save 25 images
-    for i in range(len(new_rgblist)):
-        img = Image.new('RGB', (50,50), color=tuple(new_rgblist[i]))
-        nametitle = str(i+1)
-        img.save(os.path.join(app.config['CONFIRM_FOLDER'], nametitle+'.jpg'))    
+    # for i in range(len(new_rgblist)):
+    #     img = Image.new('RGB', (50,50), color=tuple(new_rgblist[i]))
+    #     nametitle = str(i+1)
+    #     img.save(os.path.join(app.config['CONFIRM_FOLDER'], nametitle+'.jpg'))    
     return render_template("confirmation.html")
 
 # @app.route('/confirmation/<path:filename>')
