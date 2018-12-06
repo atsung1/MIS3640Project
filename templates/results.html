@@ -3,11 +3,59 @@
 <head>
     <title>Results Page</title>
 </head>
-
+<style>
+        .content {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 10px;
+        }
+        table, th, td{
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        #picture{
+            margin: 0;
+        }
+        #pixel{
+            transform: translateX(1020%) translateY(-180%);
+        }
+        #color{
+            background-color: pink;
+        }
+ 
+</style>
 <body>
+<div class="content">
     <h1>Results Page</h1>
-    <a>This is where the user sees their results, which are the top 3 color matches with product name</a><br>
-    <a>Picture of input, then picture of color selection next to it, then 3 pictures of the top 3 corlors underneath with a textbox under each including product name, brand, color name, price</a>
+    
+    <a>The Genie has picked 3 potential matches!</a><br><br><br>
+
+    
+</div>
+<table id="picture" class="original_image">
+        <tr><th colspan="5">Original Image</th>
+            <!-- <th colspan="5" id="pixel">Pixel</th> -->
+        </tr>
+         <tr>
+            <th><img src="{{'http://127.0.0.1:5000/confirmationimages/1.jpg'}}" width="50px"> </th>
+        
+
+
+    <table id="pixel">
+            <tr><th colspan="5">Pixel</th></tr>
+            <tr><td colspan="50" rowspan="4" id="color">X</td>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+
+<!-- <br><br><br><br><br> -->
+
+
+
 
 </body>
 
