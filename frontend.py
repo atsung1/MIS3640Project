@@ -94,15 +94,16 @@ def loading():
 @app.route('/confirmation/')
 def confirmation():
     #this page will display a color grid, and users will select which color
-    file1 = os.path.join(app.config['CONFIRM_FOLDER'], '1.jpg')
+    # file1 = os.path.join(app.config['CONFIRM_FOLDER'], '1.jpg')
     # print(file1)
     # img_file = Image.open(file1)
     # img_file.show()
-    return render_template("confirmation.html", img1 = file1)
+    return render_template("confirmation.html")
 
-@app.route('/confirmation/<path:filename>')
-def returnpic(filename):
-    return send_from_directory(app.config['CONFIRM_FOLDER'], filename)
+
+# @app.route('/confirmation/<path:filename>')
+# def returnpic(filename):
+#     return send_from_directory(app.config['CONFIRM_FOLDER'], filename)
 
 #send the selection to python, pick appropriate RGB, calculate top 3 results
 @app.route('/results/')
