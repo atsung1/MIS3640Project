@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
 from werkzeug.utils import secure_filename
 from finalproject import getRGB_image
 from PIL import Image
@@ -14,13 +14,12 @@ CONFIRM_FOLDER = 'confirmationimages'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 
-
 app.config['DEBUG'] = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['CONFIRM_FOLDER'] = CONFIRM_FOLDER
 
 
-app.secret_key = "Some secret string here"
+app.secret_key = "tea"
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -86,7 +85,7 @@ def loading():
     # os.chdir('C:/Users/atsung1/Documents/Software Design/MIS3640Project/confirmationimages')
     #establish working directory
     for i in range(len(new_rgblist)):
-        img = Image.new('RGB', (1,1), color=tuple(new_rgblist[i]))
+        img = Image.new('RGB', (50,50), color=tuple(new_rgblist[i]))
         nametitle = str(i+1)
         img.save(os.path.join(app.config['CONFIRM_FOLDER'], nametitle+'.jpg'))    
     return render_template('loading.html')
@@ -95,7 +94,15 @@ def loading():
 @app.route('/confirmation/')
 def confirmation():
     #this page will display a color grid, and users will select which color
-    return render_template('confirmation.html')
+    file1 = os.path.join(app.config['CONFIRM_FOLDER'], '1.jpg')
+    # print(file1)
+    # img_file = Image.open(file1)
+    # img_file.show()
+    return render_template("confirmation.html", img1 = file1)
+
+@app.route('/confirmation/<path:filename>')
+def returnpic(filename):
+    return send_from_directory(app.config['CONFIRM_FOLDER'], filename)
 
 #send the selection to python, pick appropriate RGB, calculate top 3 results
 @app.route('/results/')
