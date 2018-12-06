@@ -5,10 +5,24 @@
         <meta charset="UTF-8">
         <title>Confirmation Page </title>
         <style>
+        body{
+    background-color: lavender;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.content {
+    width: relative;    
+    margin: 30px;
+    background: white;
+    padding: 30px;
+    /* text-align: center;
+    position:relative; */
+    border-radius: 25px;
+
+}     
         th, td{
             
-            height: 50px;
-            width: 50px;
+            height: 20px;
+            width: 20px;
         }
         table{
             border:1px solid black;
@@ -28,57 +42,60 @@
             float: left;
 
         }
+        .table_on_the_left{
+            padding: 15px;
+        }
         </style>
 
 </head>
 
-<body>
+<body><div class="content">
         <h1>Confirmation Page</h1>
     <a>This is where our 5x5 grid shows up, and the user picks which color they want</a><br>
     <a>Shows the original input picture, and a colormap 5x5 table, and a reference table next to it with numbers </a><br>
     <a></a>under it have a drop down b1-25 + a submit button</a><br>
  
-    <div>
-
-    <table id="picture" class="table_on_the_left">
+    <div class="content">
+       <table class="table_on_the_left">
             <tr><th colspan="5">Colour Map</th></tr>
             <tr>
-                <td style = 'background-color:rgb({{r1}},{{g1}}, {{b1}})'></td>
+                <td style = 'background-color:rgb({{r1}},{{g1}}, {{b1}})' class="table_on_the_left">xx</td>
                 <!-- <td style = 'color:rgb({{r1}},{{g1}}, {{b1}})' width = "50px"></td> -->
-                <td style = 'background-color:rgb({{r2}},{{g2}}, {{b2}})'></td>
-                <td style = 'background-color:rgb({{r3}},{{g3}}, {{b3}})'></td>
-                <td style = 'background-color:rgb({{r4}},{{g4}}, {{b4}})'></td>
-                <td style = 'background-color:rgb({{r5}},{{g5}}, {{b5}})'></td>
+                <td style = 'background-color:rgb({{r2}},{{g2}}, {{b2}})' class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r3}},{{g3}}, {{b3}})' class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r4}},{{g4}}, {{b4}})'class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r5}},{{g5}}, {{b5}})'class="table_on_the_left">xx</td>
             </tr>
             <tr>
-                <td style = 'background-color:rgb({{r6}},{{g6}}, {{b6}})'></td>
-                <td style = 'background-color:rgb({{r7}},{{g7}}, {{b7}})'></td>
-                <td style = 'background-color:rgb({{r8}},{{g8}}, {{b8}})'></td>
-                <td style = 'background-color:rgb({{r9}},{{g9}}, {{b9}})'></td>
-                <td style = 'background-color:rgb({{r10}},{{g10}}, {{b10}})'></td>
+                <td style = 'background-color:rgb({{r6}},{{g6}}, {{b6}})' class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r7}},{{g7}}, {{b7}})' class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r8}},{{g8}}, {{b8}})' class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r9}},{{g9}}, {{b9}})' class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r10}},{{g10}}, {{b10}})' class="table_on_the_left">xx</td>
             </tr>
             <tr>
-                <td style = 'background-color:rgb({{r11}},{{g11}}, {{b11}})'></td>
-                <td style = 'background-color:rgb({{r12}},{{g12}}, {{b12}})'></td>
-                <td style = 'background-color:rgb({{r13}},{{g13}}, {{b13}})'></td>
-                <td style = 'background-color:rgb({{r14}},{{g14}}, {{b14}})'></td>
-                <td style = 'background-color:rgb({{r15}},{{g15}}, {{b15}})'></td>
+                <td style = 'background-color:rgb({{r11}},{{g11}}, {{b11}})' class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r12}},{{g12}}, {{b12}})'class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r13}},{{g13}}, {{b13}})'class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r14}},{{g14}}, {{b14}})'class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r15}},{{g15}}, {{b15}})'class="table_on_the_left">xx</td>
             </tr>
             <tr>
-                <td style = 'background-color:rgb({{r16}},{{g16}}, {{b16}})'></td>
-                <td style = 'background-color:rgb({{r17}},{{g17}}, {{b17}})'></td>
-                <td style = 'background-color:rgb({{r18}},{{g18}}, {{b18}})'></td>
-                <td style = 'background-color:rgb({{r19}},{{g19}}, {{b19}})'></td>
-                <td style = 'background-color:rgb({{r20}},{{g20}}, {{b20}})'></td>
+                <td style = 'background-color:rgb({{r16}},{{g16}}, {{b16}})'class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r17}},{{g17}}, {{b17}})'class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r18}},{{g18}}, {{b18}})'class="table_on_the_left">xxx</td>
+                <td style = 'background-color:rgb({{r19}},{{g19}}, {{b19}})'class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r20}},{{g20}}, {{b20}})'class="table_on_the_left">xx</td>
             </tr>
             <tr>
-                <td style = 'background-color:rgb({{r21}},{{g21}}, {{b21}})'></td>
-                <td style = 'background-color:rgb({{r22}},{{g22}}, {{b22}})'></td>
-                <td style = 'background-color:rgb({{r23}},{{g23}}, {{b23}})'></td>
-                <td style = 'background-color:rgb({{r24}},{{g24}}, {{b24}})'></td>
-                <td style = 'background-color:rgb({{r25}},{{g25}}, {{b25}})'></td>
+                <td style = 'background-color:rgb({{r21}},{{g21}}, {{b21}})'class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r22}},{{g22}}, {{b22}})'class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r23}},{{g23}}, {{b23}})'class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r24}},{{g24}}, {{b24}})'class="table_on_the_left">xx</td>
+                <td style = 'background-color:rgb({{r25}},{{g25}}, {{b25}})'class="table_on_the_left">xx</td>
             </tr>
         </table>
+  
 
     <table id="table_on_the_right">
         <tr><th colspan="5">Reference</th></tr>
@@ -119,16 +136,16 @@
         </tr>
     </table>
 </div>
+<!-- <br>
 <br>
 <br>
+<br> -->
+<!-- <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
+<br> -->
 <br><br><br><br><br><br><br><br><br>
-<form action="/results/" method="POST" name=numbers>
+<p><form action="/results/" method="POST" name=numbers>
     <select name=numbers>
       <option value="1" SELECTED>1</option>
       <option value="2">2</option>
@@ -163,7 +180,7 @@
 <!-- <p id="hi">
         <a href ="{{ url_for('results') }}">See my results button</a>
 </p> -->
-
+</p></div>
 </body>
 
 </html>
