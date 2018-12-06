@@ -117,7 +117,10 @@ def confirmation(filename):
     #     img = Image.new('RGB', (50,50), color=tuple(new_rgblist[i]))
     #     nametitle = str(i+1)
     #     img.save(os.path.join(app.config['CONFIRM_FOLDER'], nametitle+'.jpg'))    
-    r=[255,255,255,255,255]
+    r = []
+    g = []
+    b = []
+
     return render_template("confirmation.html", r1=r[0], r2=r[1], r3=r[2], r4=r[3], r5=r[4])
 
 # @app.route('/confirmation/<path:filename>')
