@@ -91,7 +91,7 @@ def matchpage():
 #     return render_template('loading.html')
 
 
-@app.route('/confirmation/<filename>')
+@app.route('/confirmation/<filename>', methods=['POST','GET'])
 def confirmation(filename):
     #this page will display a color grid, and users will select which color
     # file1 = os.path.join(app.config['CONFIRM_FOLDER'], '1.jpg')
@@ -141,9 +141,10 @@ def confirmation(filename):
 #     return send_from_directory(app.config['CONFIRM_FOLDER'], filename)
 
 #send the selection to python, pick appropriate RGB, calculate top 3 results
-@app.route('/results/')
-def results():
+@app.route('/results/<numbers>', methods=['GET'])
+def results(numbers):
     #we will return top 3 results with color grid and product name
+
     return render_template('results.html')
 
 @app.route('/updatepage/')
