@@ -125,7 +125,16 @@ def confirmation(filename):
             g.append(new_rgblist[i][1])
             b.append(new_rgblist[i][2])
 
-    return render_template("confirmation.html", r1=r[0], r2=r[1], r3=r[2], r4=r[3], r5=r[4])
+    return render_template("confirmation.html", r1=r[0], r2=r[1], r3=r[2], r4=r[3], r5=r[4], r6=r[5], r7=r[6], r8=r[7],
+                           r9=r[8],r10=r[9],r11 = r[10],r12 = r[11],r13=r[12],r14=r[13],r15 = r[14],r16 = r[15],
+                           r17=r[16],r18 = r[17],r19 = r[18],r20 = r[19],r21 = r[20],r22 = r[21],r23 = r[22],r24 = r[23]
+                           ,r25 = r[24],g1=g[0], g2=g[1], g3=g[2], g4=g[3], g5=g[4], g6=g[5], g7=g[6], g8=g[7], g9=g[8],
+                           g10=g[9],g11 = g[10],g12 = g[11],g13=g[12],g14=g[13],g15 = g[14],g16 = g[15],g17=g[16],
+                           g18 = g[17],g19 = g[18],g20 = g[19],g21 = g[20],g22 = g[21],g23 = g[22],g24 = g[23],
+                           g25 = g[24], b1=b[0], b2=b[1], b3=b[2], b4=b[3], b5=b[4], b6=b[5], b7=b[6], b8=b[7], b9=b[8],
+                           b10=b[9],b11 = b[10],b12 = b[11],b13=b[12],b14=b[13],b15 = b[14],b16 = b[15],b17=b[16],
+                           b18 = b[17],b19 = b[18],b20 = b[19],b21 = b[20],b22 = b[21],
+                           b23 = b[22],b24 = b[23],b25 = b[24])
 
 # @app.route('/confirmation/<path:filename>')
 # def returnpic(filename):
