@@ -120,6 +120,10 @@ def confirmation(filename):
     r = []
     g = []
     b = []
+    for i in range(25):
+            r.append(new_rgblist[i][0])
+            g.append(new_rgblist[i][1])
+            b.append(new_rgblist[i][2])
 
     return render_template("confirmation.html", r1=r[0], r2=r[1], r3=r[2], r4=r[3], r5=r[4])
 
