@@ -43,9 +43,9 @@ def matchpage():
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
+            # filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'userphoto.jpg'))
-            return redirect(url_for('loading', filename='userphoto.jpg'))
+            return redirect(url_for('confirmation', filename='userphoto.jpg'))
     #I basically can't figure out how to link it to matchpage so i made the Match page here below
     return '''
     <!doctype html>
@@ -70,36 +70,49 @@ def matchpage():
         #users will upload photos on this page
         #will send file back to python and return grid of colors r1 g1 b1 r2 g2 b2 ......
 
-@app.route('/loading/')
-def loading():
-#this page will display loading stuff
-    # photopath = os.path.abspath()
-    rgblist = getRGB_image('submissions/userphoto.jpg')
+# @app.route('/loading/')
+# def loading():
+# #this page will display loading stuff
+#     # photopath = os.path.abspath()
+#     rgblist = getRGB_image('submissions/userphoto.jpg')
+#     new_rgblist = []
+#     for i in range(len(rgblist)):
+#         new_item = []
+#         for j in range(3):
+#             new_item.append(int(rgblist[i][j]))
+#         new_rgblist.append(new_item)
+#     #list of rgbs for each rectangle
+#     # os.chdir('C:/Users/atsung1/Documents/Software Design/MIS3640Project/confirmationimages')
+#     #establish working directory
+#     for i in range(len(new_rgblist)):
+#         img = Image.new('RGB', (50,50), color=tuple(new_rgblist[i]))
+#         nametitle = str(i+1)
+#         img.save(os.path.join(app.config['CONFIRM_FOLDER'], nametitle+'.jpg'))    
+#     return render_template('loading.html')
+
+
+@app.route('/confirmation/<filename>')
+def confirmation(filename):
+    #this page will display a color grid, and users will select which color
+    # file1 = os.path.join(app.config['CONFIRM_FOLDER'], '1.jpg')
+
+    # print(file1)
+    # img_file = Image.open(file1)
+    # img_file.show()
+    rgblist = getRGB_image('submissions/'+filename)
     new_rgblist = []
+    #convert rgb list to int
     for i in range(len(rgblist)):
         new_item = []
         for j in range(3):
             new_item.append(int(rgblist[i][j]))
         new_rgblist.append(new_item)
-    #list of rgbs for each rectangle
-    # os.chdir('C:/Users/atsung1/Documents/Software Design/MIS3640Project/confirmationimages')
-    #establish working directory
+    #save 25 images
     for i in range(len(new_rgblist)):
         img = Image.new('RGB', (50,50), color=tuple(new_rgblist[i]))
         nametitle = str(i+1)
         img.save(os.path.join(app.config['CONFIRM_FOLDER'], nametitle+'.jpg'))    
-    return render_template('loading.html')
-
-
-@app.route('/confirmation/')
-def confirmation():
-    #this page will display a color grid, and users will select which color
-    # file1 = os.path.join(app.config['CONFIRM_FOLDER'], '1.jpg')
-    # print(file1)
-    # img_file = Image.open(file1)
-    # img_file.show()
     return render_template("confirmation.html")
-
 
 # @app.route('/confirmation/<path:filename>')
 # def returnpic(filename):
