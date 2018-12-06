@@ -18,12 +18,26 @@
             margin: 0;
         }
         #pixel{
-            transform: translateX(1020%) translateY(-180%);
+            transform: translateX(400%) translateY(-100%);
         }
         #color{
             background-color: pink;
+            width:100px;
+            height: 60px;
         }
- 
+        
+        #Product1{
+            transform: translateX(100%) translateY(0%);
+
+        }
+        #Product2{
+            transform: translateX(250%) translateY(-100%);
+
+        }
+        #Product3{
+            transform: translateX(400%) translateY(-200%);
+
+        }
 </style>
 <body>
 <div class="content">
@@ -33,28 +47,51 @@
 
     
 </div>
+
 <table id="picture" class="original_image">
         <tr><th colspan="5">Original Image</th>
             <!-- <th colspan="5" id="pixel">Pixel</th> -->
         </tr>
          <tr>
             <th><img src="{{'http://127.0.0.1:5000/confirmationimages/1.jpg'}}" width="50px"> </th>
-        
-
+        </tr>
+         </table>
 
     <table id="pixel">
-            <tr><th colspan="5">Pixel</th></tr>
-            <tr><td colspan="50" rowspan="4" id="color">X</td>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
+            <tr><th colspan="5"  a href="{{'  '}}">Pixel</th></tr>
+            <tr><td id="color"  a href="{{'   '}}">Reference #</td>
+            </tr>    
+    </table>
+<br><br><br>
 
-<!-- <br><br><br><br><br> -->
+<h3>Product Recommendations:</h3>
 
+<table id="Product1">
+    <tr><th>Company:</th>
+        <tha href = "{{'   '}}"></th></th></tr>
+    <tr><th>Product Name:</th>
+        <th a href= "{{'   '}}"></th></tr>
+    <tr><th>Color:</th>
+        <th a href = "{{'   '}}"></th></tr>
+</table>
 
+<table id="Product2">
+    <tr><th>Company:</th>
+        <tha href = "{{'   '}}"></th></th></tr>
+    <tr><th>Product Name:</th>
+        <th a href= "{{'   '}}"></th></tr>
+    <tr><th>Color:</th>
+        <th a href = "{{'   '}}"></th></tr>
+</table>
+
+<table id="Product3">
+    <tr><th>Company:</th>
+        <tha href = "{{'   '}}"></th></th></tr>
+    <tr><th>Product Name:</th>
+        <th a href= "{{'   '}}"></th></tr>
+    <tr><th>Color:</th>
+        <th a href = "{{'   '}}"></th></tr>
+</table>
 
 
 </body>
