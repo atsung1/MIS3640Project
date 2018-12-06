@@ -148,6 +148,7 @@ def getMatches(list, filepath):
     import operator
     sorted_chart = sorted(chart.items(), key=operator.itemgetter(1))
     print(sorted_chart[0:3])
+    return sorted_chart[0:3]
 
 #just testing
 print(loadData('Shiseido_products.csv'))
