@@ -76,13 +76,19 @@ def loading():
 #this page will display loading stuff
     # photopath = os.path.abspath()
     rgblist = getRGB_image('submissions/userphoto.jpg')
+    new_rgblist = []
+    for i in range(len(rgblist)):
+        new_item = []
+        for j in range(3):
+            new_item.append(int(rgblist[i][j]))
+        new_rgblist.append(new_item)
     #list of rgbs for each rectangle
     # os.chdir('C:/Users/atsung1/Documents/Software Design/MIS3640Project/confirmationimages')
     #establish working directory
-    for i in range(len(rgblist)):
-        img = Image.new('RGB', (1,1), color=tuple(rgblist[i]))
+    for i in range(len(new_rgblist)):
+        img = Image.new('RGB', (1,1), color=tuple(new_rgblist[i]))
         nametitle = str(i+1)
-        img.save(os.path.join(app.config['CONFIRM_FOLDER'], nametitle+'.jpg'),format='JPG')    
+        img.save(os.path.join(app.config['CONFIRM_FOLDER'], nametitle+'.jpg'))    
     return render_template('loading.html')
 
 
