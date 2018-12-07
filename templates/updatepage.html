@@ -32,8 +32,12 @@
     <h1>Update Page</h1>
     <a>This is where they can upload and update the csv</a><br>
     <br>
-    <input type="file" id="myFile">
-    <button type="submit" id="upload" value="submit">Submit</button></p>
+    <form method=post enctype=multipart/form-data>
+        <p><input type=file name=file>
+            <input type=submit value=Upload>
+        </form>
+    <!-- <input type="file" id="myFile">
+    <button type="submit" id="upload" value="submit">Submit</button></p> -->
 
 </div>
 </body>

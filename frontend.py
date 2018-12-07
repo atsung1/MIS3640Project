@@ -168,9 +168,30 @@ def confirmation(filename):
         # matches = getMatches()
     # return render_template('results.html')
 
-@app.route('/updatepage/')
+@app.route('/updatepage/', methods=['POST','GET'])
 def updatepage():
     #allows database to be updated
+
+    if request.method == 'POST':
+        new_csv = request.form['submit']
+        print(new_csv)
+        #check if post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # if user does not select file, browser also
+        # submits a empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            # filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['CSV_FOLDER'], 'new_upload.csv'))
+            a = loadData(os.path.join(app.config['CSV_FOLDER'], 'new_upload.csv'))
+        if new_csv:
+            return redirect(url_for('index'))
+    #I basically can't figure out how to link it to matchpage so i made the Match page here below
     return render_template('updatepage.html')
 
 
