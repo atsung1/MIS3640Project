@@ -17,7 +17,7 @@ def getRGB_image(filepath):
     img = img_file.load()
 
     [xs, ys] = img_file.size
-    print("The image resolution is" , xs, "*", ys)
+    # print("The image resolution is" , xs, "*", ys)
 
     # get the number of samples in each rectangle, 5% of total pixels in the rectangle
     num_samples = math.ceil(ys * xs * .002)
@@ -147,11 +147,11 @@ def getMatches(list, filepath):
     # sort 3 closest
     import operator
     sorted_chart = sorted(chart.items(), key=operator.itemgetter(1))
-    print(sorted_chart[0:3])
+    # print(sorted_chart[0:3])
     return sorted_chart[0:3]
 
 #just testing
-print(loadData('Shiseido_products.csv'))
+# print(loadData('Shiseido_products.csv'))
 getMatches([234,206,189],'Book1.csv')
 
 

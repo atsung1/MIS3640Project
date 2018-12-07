@@ -49,12 +49,27 @@
 
 </head>
 
-<body><div class="content">
+<body>
+
+    <div class="content">
         <h1>Confirmation Page</h1>
     <a>This is where our 5x5 grid shows up, and the user picks which color they want</a><br>
     <a>Shows the original input picture, and a colormap 5x5 table, and a reference table next to it with numbers </a><br>
     <a></a>under it have a drop down b1-25 + a submit button</a><br>
  
+    <div class="content">
+            <table id="picture" class="original_image">
+                    <tr><th colspan="5">Original Image</th>
+                        <!-- <th colspan="5" id="pixel">Pixel</th> -->
+                    </tr>
+                     <tr>
+                        <th><img src="/static/userphoto.jpg" width="100px" padding="20px"> </th>
+                    </tr>
+                     </table>
+            
+    </div>
+        <br><br><br><br>
+
     <div class="content">
        <table class="table_on_the_left">
             <tr><th colspan="5">Colour Map</th></tr>
@@ -145,7 +160,9 @@
 <br>
 <br> -->
 <br><br><br><br><br><br><br><br><br>
-<p><form action="/results/" method="POST" name=numbers>
+
+<div class="content">
+<p><form method="POST" name=numbers>
     <select name=numbers>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -174,12 +191,8 @@
       <option value="25">25</option>
 
     </select>
-    <br><br>
-    <input type="submit" a href ="{{ url_for('results') }}" value="See my results"></a>
+    <input type="submit" value="See my results"></a>
   </form>
-<!-- <p id="hi">
-        <a href ="{{ url_for('results') }}">See my results button</a>
-</p> -->
 </p></div>
 </body>
 

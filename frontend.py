@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
 from werkzeug.utils import secure_filename
-from finalproject import getRGB_image, getDistance, getMatches
+from finalproject import getRGB_image, getDistance, getMatches, loadData
 from PIL import Image
 import math
 import random
@@ -9,14 +9,16 @@ import csv
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER ='submissions'
+UPLOAD_FOLDER ='static'
 CONFIRM_FOLDER = 'confirmationimages'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+CSV_FOLDER = 'csvfolder'
 
 
 app.config['DEBUG'] = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['CONFIRM_FOLDER'] = CONFIRM_FOLDER
+app.config['CSV_FOLDER'] = CSV_FOLDER
 
 
 app.secret_key = "tea"
@@ -99,7 +101,7 @@ def confirmation(filename):
     # print(file1)
     # img_file = Image.open(file1)
     # img_file.show()
-    rgblist = getRGB_image('submissions/'+filename)
+    rgblist = getRGB_image('static/'+filename)
     new_rgblist = []
     #convert rgb list to int
     for i in range(len(rgblist)):
@@ -126,8 +128,20 @@ def confirmation(filename):
             b.append(new_rgblist[i][2])
 
     if request.method == 'POST':
-        numbers = str(request.form['numbers'])
-        print(numbers)
+        #everything in here is when users input
+        colornum = int(request.form['numbers'])
+        # a = float(request.form['a'])
+        # b = float(request.form['b'])
+        # c = float(request.form['c'])
+        # root_1, root_2 = quadratic(a, b, c)
+        # print(colornum) #check if input is working
+        if colornum:
+        #colornum needs to reference the rgb list
+            colorrgb = [r[colornum-1], g[colornum-1], b[colornum-1]]
+            # somelist = loadData(os.path.join(app.config['CSV_FOLDER']+'/Shiseido_products.csv'))            
+            matches = getMatches(colorrgb, os.path.join(app.config['CSV_FOLDER']+'/Shiseido_products.csv'))
+            print(matches)
+            return render_template('results.html', colornum=colornum)
 
     return render_template("confirmation.html", r1=r[0], r2=r[1], r3=r[2], r4=r[3], r5=r[4], r6=r[5], r7=r[6], r8=r[7],
                            r9=r[8],r10=r[9],r11 = r[10],r12 = r[11],r13=r[12],r14=r[13],r15 = r[14],r16 = r[15],
@@ -145,14 +159,14 @@ def confirmation(filename):
 #     return send_from_directory(app.config['CONFIRM_FOLDER'], filename)
 
 #send the selection to python, pick appropriate RGB, calculate top 3 results
-@app.route('/results/', methods=['GET', 'POST'])
-def results():
+# @app.route('/results/', methods=['GET', 'POST'])
+# def results():
     #we will return top 3 results with color grid and product name
     # if request.method == 'POST':
     #     r = request.form['numbers']
     #     print(r)
         # matches = getMatches()
-    return render_template('results.html')
+    # return render_template('results.html')
 
 @app.route('/updatepage/')
 def updatepage():
