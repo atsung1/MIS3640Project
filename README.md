@@ -4,7 +4,7 @@ MIS 3640
 
 ## The Big Idea
 
-The main idea of our project is to create a tool to help beauty lovers discover a scientifically precise shade of color for their makeup products. We will focus on the aspect of color matching from a photo. We will explore web scraping, database queries, as well as object-relational mapping. Our minimum viable product will be a working webpage in which users can upload a photo of their skin and receive color recommendations in their foundation shade. Our stretch goal will be to create a database with makeup products and link in product recommendations in the corresponding shade for the user.
+The main idea of our project is to create a tool to help beauty lovers discover a scientifically precise shade of color for their makeup products. We will focus on the aspect of color matching from a photo. We will explore web scraping as well as object-relational mapping. Our minimum viable product will be a working webpage in which users can upload a photo of their skin and receive color recommendations in their foundation shade. Our stretch goal will be to create a database with makeup products and link in product recommendations in the corresponding shade for the user.
 
 ## Learning Goals
 
@@ -15,12 +15,12 @@ Collectively, we hope to learn to apply design thinking and agile methodology to
 * Jonathan: Have experience on how to build a solution/product by using Python and other programming platforms.
 * Jack: Use Python as a tool to provide creative solution to meet task requirements as a entry level developer.
 * Pranjal: Get a first hand experience on how the final product looks and what kind of elements are used to build it. 
-* Angela: Experience project management with a emphasis on the technical aspect, learn and apply object-relational mapping
+* Angela: Experience project management with a emphasis on the technical aspect, learn and apply Flask & HTML
 * Aaron: Create a python program that connects to other platforms such as SQL, html, etc.
 
 ## Implementation Plan
 
-For this project, we plan on using SQL Alchemy for object-relational mapping, the Flask web framework for its extensions in object-relational mapping, and the OpenCV library for color detection aspects. First, we will need to figure out what information and inputs we will need from the user in order to determine a result and output. In order to match colors, we will need a colors database and use the Euclidean distance between a number of random points  to determine a balanced color point from the image. For our stretch goal, we will need to web scrape makeup product information and color correspondence in order to map our color output to specific product recommendations.
+For this project, we plan on using the Flask web framework for its extensions in object-relational mapping, and the OpenCV library for color detection aspects. First, we will need to figure out what information and inputs we will need from the user in order to determine a result and output. In order to match colors, we will need a colors database and use the Euclidean distance between a number of random points  to determine a balanced color point from the image. For our stretch goal, we will need to web scrape makeup product information and color correspondence in order to map our color output to specific product recommendations.
 
 For this initial high-level brainstorm of our project components, the user data we will collect will be an image upload of the user’s skin color. Ths user interactions we will need to build include a place for the user to upload a photo and an interface for the user to navigate their corresponding shade and makeup products. Some of the objects and logics we will have include the randomized choice of a color point, corresponding color hex codes, as well as a lookup function for the right color. The product will include a beginning scene, an uploading scene, as well as a browsing scene for the final recommendations.
 

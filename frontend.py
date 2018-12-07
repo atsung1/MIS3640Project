@@ -54,23 +54,23 @@ def matchpage():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'userphoto.jpg'))
             return redirect(url_for('confirmation', filename='userphoto.jpg'))
     #I basically can't figure out how to link it to matchpage so i made the Match page here below
-    return '''
-    <!doctype html>
-    <head>
-        <title>Match Page</title>
-    </head>
-    <body>
-        <h1>Match Page</h1>
+    return render_template('matchpage.html')
+    # '''<!doctype html>
+    # <head>
+    #     <title>Match Page</title>
+    # </head>
+    # <body>
+    #     <h1>Match Page</h1>
 
-        <a>Upload a photo of your skin that you would like The Genie to find a match for!</a><p>
+    #     <a>Upload a photo of your skin that you would like The Genie to find a match for!</a><p>
 
-        <a>Select image to upload:</a><br>
-        <form method=post enctype=multipart/form-data>
-        <p><input type=file name=file>
-            <input type=submit value=Upload>
-        </form>
-    </body>
-    '''
+    #     <a>Select image to upload:</a><br>
+    #     <form method=post enctype=multipart/form-data>
+    #     <p><input type=file name=file>
+    #         <input type=submit value=Upload>
+    #     </form>
+    # </body>
+    # '''
         #f = request.files['the_file']
         # file.save('/var/www/uploads/uploaded_file.txt')
         # return render_template('matchpage.html')
@@ -199,7 +199,6 @@ def updatepage():
         # if new_csv:
             print('success!')
             return redirect(url_for('index'))
-    #I basically can't figure out how to link it to matchpage so i made the Match page here below
     return render_template('updatepage.html')
 
 
