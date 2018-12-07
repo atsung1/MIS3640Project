@@ -143,12 +143,11 @@ def getMatches(list, filepath):
                 # to get % match
                 match = (1-(dist/maxdist))
                 # record the match % into a temp list
-                chart[item[0]] = match
+                chart[item[0]] = [match, item[1], item[0], item[4]]
     # sort 3 closest
     import operator
     sorted_chart = sorted(chart.items(), key=operator.itemgetter(1))
-    # print(sorted_chart[0:3])
-    return sorted_chart[0:3]
+    return(sorted_chart[-3:])
 
 #just testing
 # print(loadData('Shiseido_products.csv'))

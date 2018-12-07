@@ -142,6 +142,7 @@ def confirmation(filename):
             # somelist = loadData(os.path.join(app.config['CSV_FOLDER']+'/Book1.csv'))            
             matches = getMatches(colorrgb, 'Book1.csv')
             print(matches)
+            print(matches[0][1][1])
             return render_template('results.html', colornum=colornum, colorrgb=colorrgb, matches=matches)
 
     return render_template("confirmation.html", r1=r[0], r2=r[1], r3=r[2], r4=r[3], r5=r[4], r6=r[5], r7=r[6], r8=r[7],
