@@ -12,6 +12,7 @@ app = Flask(__name__)
 UPLOAD_FOLDER ='static'
 CONFIRM_FOLDER = 'confirmationimages'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_UPDATES = set(['csv', 'xls'])
 CSV_FOLDER = 'csvfolder'
 
 
@@ -26,6 +27,10 @@ app.secret_key = "tea"
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def allowed_update(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_UPDATES
 
 @app.route('/')
 def index():
@@ -175,8 +180,8 @@ def updatepage():
     #allows database to be updated
 
     if request.method == 'POST':
-        new_csv = request.form['submit']
-        print(new_csv)
+        # new_csv = request.form['submit']
+        # print(new_csv)
         #check if post request has the file part
         if 'file' not in request.files:
             flash('No file part')
@@ -187,11 +192,12 @@ def updatepage():
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
-        if file and allowed_file(file.filename):
+        if file and allowed_update(file.filename):
             # filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['CSV_FOLDER'], 'new_upload.csv'))
-            a = loadData(os.path.join(app.config['CSV_FOLDER'], 'new_upload.csv'))
-        if new_csv:
+            # file.save(os.path.join(app.config['CSV_FOLDER'], 'new_upload.csv'))
+            a = loadData('Book1.csv')
+        # if new_csv:
+            print('success!')
             return redirect(url_for('index'))
     #I basically can't figure out how to link it to matchpage so i made the Match page here below
     return render_template('updatepage.html')
