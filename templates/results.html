@@ -22,6 +22,7 @@
         table, th, td{
             border:1px solid rgb(180, 144, 96);
             border-collapse: collapse;
+            text-align: center;
         }
         #picture{
             margin: 0;
@@ -32,7 +33,7 @@
             transform: translateX(500%) translateY(-70%);
         }
         #color{
-            background-color: rgb(179, 53, 53);
+            background-color: rgb({{colorrgb[0]}}, {{colorrgb[1]}}, {{colorrgb[2]}});
             width:100px;
             height: 60px;
         }
@@ -44,7 +45,7 @@
             transform: translateX(160%) translateY(-100%);
         }
         #Product3{
-            transform: translateX(180%) translateY(-200%);
+            transform: translateX(300%) translateY(-200%);
         }
         h3{
             text-align: center;
@@ -77,8 +78,8 @@
          </table>
 
     <table id="pixel">
-            <tr><th colspan="5"  a href="{{'  '}}">Pixel</th></tr>
-            <tr><td id="color"  a href="{{'   '}}">Reference #</td>
+            <tr><th colspan="5"  a href="{{'  '}}">Color Selected</th></tr>
+            <tr><td id="color"  a href="{{'   '}}">{{colornum}}</td>
             </tr>    
     </table>
 <br><br><br>
@@ -89,7 +90,7 @@
     <tr><th>Company:</th>
         <th href = "{{'   '}}">Shiseido</th></th></tr>
     <tr><th>Product Name:</th>
-        <th a href= "{{'   '}}">Synchro Skin Illuminator</th></tr>
+        <th a href= "{{'   '}}">{{matches[0][0]}}</th></tr>
     <tr><th>Color:</th>
         <th a href = "{{'   '}}">light Gold</th></tr>
 </table>
@@ -98,7 +99,7 @@
     <tr><th>Company:</th>
         <th href = "{{'   '}}">Shiseido</th></th></tr>
     <tr><th>Product Name:</th>
-        <th a href= "{{'   '}}">Powdery Foundation</th></tr>
+        <th a href= "{{'   '}}">{{matches[1][0]}}</th></tr>
     <tr><th>Color:</th>
         <th a href = "{{'   '}}">Fair Beige</th></tr>
 </table>
@@ -107,7 +108,7 @@
     <tr><th>Company:</th>
         <th href = "{{'   '}}">Shiseido</th></th></tr>
     <tr><th>Product Name:</th>
-        <th a href= "{{'   '}}">Synchro Skin Lasting Liquid Foundation</th></tr>
+        <th a href= "{{'   '}}">{{matches[2][0]}}</th></tr>
     <tr><th>Color:</th>
         <th a href = "{{'   '}}">Golden</th></tr>
 </table>

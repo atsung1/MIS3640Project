@@ -138,10 +138,11 @@ def confirmation(filename):
         if colornum:
         #colornum needs to reference the rgb list
             colorrgb = [r[colornum-1], g[colornum-1], b[colornum-1]]
-            # somelist = loadData(os.path.join(app.config['CSV_FOLDER']+'/Shiseido_products.csv'))            
-            matches = getMatches(colorrgb, os.path.join(app.config['CSV_FOLDER']+'/Shiseido_products.csv'))
+            # r_select, g_select, b_select = r[colornum-1], g[colornum-1], b[colornum-1]
+            # somelist = loadData(os.path.join(app.config['CSV_FOLDER']+'/Book1.csv'))            
+            matches = getMatches(colorrgb, 'Book1.csv')
             print(matches)
-            return render_template('results.html', colornum=colornum)
+            return render_template('results.html', colornum=colornum, colorrgb=colorrgb, matches=matches)
 
     return render_template("confirmation.html", r1=r[0], r2=r[1], r3=r[2], r4=r[3], r5=r[4], r6=r[5], r7=r[6], r8=r[7],
                            r9=r[8],r10=r[9],r11 = r[10],r12 = r[11],r13=r[12],r14=r[13],r15 = r[14],r16 = r[15],
