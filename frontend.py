@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory, make_response
 from werkzeug.utils import secure_filename
 from finalproject import getRGB_image, getDistance, getMatches, loadData
 from PIL import Image
@@ -10,16 +10,16 @@ import csv
 app = Flask(__name__)
 
 UPLOAD_FOLDER ='static'
-CONFIRM_FOLDER = 'confirmationimages'
+# CONFIRM_FOLDER = 'confirmationimages'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 ALLOWED_UPDATES = set(['csv', 'xls'])
-CSV_FOLDER = 'csvfolder'
+# CSV_FOLDER = 'csvfolder'
 
 
 app.config['DEBUG'] = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['CONFIRM_FOLDER'] = CONFIRM_FOLDER
-app.config['CSV_FOLDER'] = CSV_FOLDER
+# app.config['CONFIRM_FOLDER'] = CONFIRM_FOLDER
+# app.config['CSV_FOLDER'] = CSV_FOLDER
 
 
 app.secret_key = "tea"
@@ -106,6 +106,12 @@ def confirmation(filename):
     # print(file1)
     # img_file = Image.open(file1)
     # img_file.show()
+
+    # fullpath = "./static/" + filename
+    # resp = make_response(open(fullpath).read())
+    # resp.content_type = "image/jpeg"
+    # resp.show()
+
     rgblist = getRGB_image('static/'+filename)
     new_rgblist = []
     #convert rgb list to int
@@ -146,9 +152,9 @@ def confirmation(filename):
             # r_select, g_select, b_select = r[colornum-1], g[colornum-1], b[colornum-1]
             # somelist = loadData(os.path.join(app.config['CSV_FOLDER']+'/Book1.csv'))            
             matches = getMatches(colorrgb, 'Book1.csv')
-            print(matches)
-            print(matches[0][1][1])
-            return render_template('results.html', colornum=colornum, colorrgb=colorrgb, matches=matches)
+            # print(matches)
+            # print(matches[0][1][1])
+            return render_template('results.html', colornum=colornum, colorrgb=colorrgb, matches=matches, filename=filename)
 
     return render_template("confirmation.html", r1=r[0], r2=r[1], r3=r[2], r4=r[3], r5=r[4], r6=r[5], r7=r[6], r8=r[7],
                            r9=r[8],r10=r[9],r11 = r[10],r12 = r[11],r13=r[12],r14=r[13],r15 = r[14],r16 = r[15],
@@ -159,7 +165,11 @@ def confirmation(filename):
                            g25 = g[24], b1=b[0], b2=b[1], b3=b[2], b4=b[3], b5=b[4], b6=b[5], b7=b[6], b8=b[7], b9=b[8],
                            b10=b[9],b11 = b[10],b12 = b[11],b13=b[12],b14=b[13],b15 = b[14],b16 = b[15],b17=b[16],
                            b18 = b[17],b19 = b[18],b20 = b[19],b21 = b[20],b22 = b[21],
-                           b23 = b[22],b24 = b[23],b25 = b[24])
+                           b23 = b[22],b24 = b[23],b25 = b[24], filename=filename)
+
+@app.route('/uploads/<filename>')
+def send_file(filename):
+    return send_from_directory(UPLOAD_FOLDER, filename)
 
 # @app.route('/confirmation/<path:filename>')
 # def returnpic(filename):
@@ -197,12 +207,9 @@ def updatepage():
             # file.save(os.path.join(app.config['CSV_FOLDER'], 'new_upload.csv'))
             a = loadData('Book1.csv')
         # if new_csv:
-            print('success!')
+            # print('success!')
             return redirect(url_for('index'))
     return render_template('updatepage.html')
-
-
-
 
 # if __name__ == '__main__':
 #     app.run()
