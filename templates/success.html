@@ -29,14 +29,10 @@
         </style>
 
 <body><div id="content">
-    <h1>Update Page</h1>
-    <a>Upload a csv file here to add products to the database!</a><br>
-    <a>Your file must have the following columns: product name, brand name, color code, color name, number, product type, price, rgb numbers</a><br>
+    <h1>Success Page</h1>
+    <a>Success! Your file has been added to the database.</a><br>
     <br>
-    <form method=post enctype=multipart/form-data>
-        <p><input type=file name=file>
-            <input type=submit value=Upload></p>
-        </form>
+    <a href="{{url_for('index')}}" type='button' name=submit>Return to home</a>
 
 </div>
 </body>

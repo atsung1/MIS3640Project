@@ -14,8 +14,6 @@
     margin: 30px;
     background: white;
     padding: 30px;
-    /* text-align: center;
-    position:relative; */
     border-radius: 25px;
 
 }     
@@ -53,18 +51,14 @@
 
     <div class="content">
         <h1>Confirmation Page</h1>
-    <a>This is where our 5x5 grid shows up, and the user picks which color they want</a><br>
-    <a>Shows the original input picture, and a colormap 5x5 table, and a reference table next to it with numbers </a><br>
-    <a></a>under it have a drop down b1-25 + a submit button</a><br>
+    <a>Pick the color you would like to search for products with:</a><br>
  
     <div class="content">
             <table id="picture" class="original_image">
                     <tr><th colspan="5">Original Image</th>
-                        <!-- <th colspan="5" id="pixel">Pixel</th> -->
                     </tr>
                      <tr>
-                        <!-- <th><img src="/static/{{filename}}" width="100px" padding="20px"> </th> -->
-                        <th><img src="{{ url_for('send_file', filename=filename)}}" width="100px" padding="20px"> </th>
+                        <th><img src="{{ url_for('static', filename=filename)}}" width="100px" padding="20px"> </th>
                     </tr>
                      </table>
             
@@ -75,91 +69,42 @@
        <table class="table_on_the_left">
             <tr><th colspan="5">Colour Map</th></tr>
             <tr>
-                <td style = 'background-color:rgb({{r1}},{{g1}}, {{b1}})' class="table_on_the_left">1</td>
-                <!-- <td style = 'color:rgb({{r1}},{{g1}}, {{b1}})' width = "50px"></td> -->
-                <td style = 'background-color:rgb({{r2}},{{g2}}, {{b2}})' class="table_on_the_left">2</td>
-                <td style = 'background-color:rgb({{r3}},{{g3}}, {{b3}})' class="table_on_the_left">3</td>
-                <td style = 'background-color:rgb({{r4}},{{g4}}, {{b4}})'class="table_on_the_left">4</td>
-                <td style = 'background-color:rgb({{r5}},{{g5}}, {{b5}})'class="table_on_the_left">5</td>
+                <td style = 'background-color:rgb({{r[0]}},{{g[0]}}, {{b[0]}})' class="table_on_the_left">1</td>
+                <td style = 'background-color:rgb({{r[1]}},{{g[1]}}, {{b[1]}})' class="table_on_the_left">2</td>
+                <td style = 'background-color:rgb({{r[2]}},{{g[2]}}, {{b[2]}})' class="table_on_the_left">3</td>
+                <td style = 'background-color:rgb({{r[3]}},{{g[3]}}, {{b[3]}})'class="table_on_the_left">4</td>
+                <td style = 'background-color:rgb({{r[4]}},{{g[4]}}, {{b[4]}})'class="table_on_the_left">5</td>
             </tr>
             <tr>
-                <td style = 'background-color:rgb({{r6}},{{g6}}, {{b6}})' class="table_on_the_left">6</td>
-                <td style = 'background-color:rgb({{r7}},{{g7}}, {{b7}})' class="table_on_the_left">7</td>
-                <td style = 'background-color:rgb({{r8}},{{g8}}, {{b8}})' class="table_on_the_left">8</td>
-                <td style = 'background-color:rgb({{r9}},{{g9}}, {{b9}})' class="table_on_the_left">9</td>
-                <td style = 'background-color:rgb({{r10}},{{g10}}, {{b10}})' class="table_on_the_left">10</td>
+                <td style = 'background-color:rgb({{r[5]}},{{g[5]}}, {{b[5]}})' class="table_on_the_left">6</td>
+                <td style = 'background-color:rgb({{r[6]}},{{g[6]}}, {{b[6]}})' class="table_on_the_left">7</td>
+                <td style = 'background-color:rgb({{r[7]}},{{g[7]}}, {{b[7]}})' class="table_on_the_left">8</td>
+                <td style = 'background-color:rgb({{r[8]}},{{g[8]}}, {{b[8]}})' class="table_on_the_left">9</td>
+                <td style = 'background-color:rgb({{r[9]}},{{g[9]}}, {{b[9]}})' class="table_on_the_left">10</td>
             </tr>
             <tr>
-                <td style = 'background-color:rgb({{r11}},{{g11}}, {{b11}})' class="table_on_the_left">11</td>
-                <td style = 'background-color:rgb({{r12}},{{g12}}, {{b12}})'class="table_on_the_left">12</td>
-                <td style = 'background-color:rgb({{r13}},{{g13}}, {{b13}})'class="table_on_the_left">13</td>
-                <td style = 'background-color:rgb({{r14}},{{g14}}, {{b14}})'class="table_on_the_left">14</td>
-                <td style = 'background-color:rgb({{r15}},{{g15}}, {{b15}})'class="table_on_the_left">15</td>
+                <td style = 'background-color:rgb({{r[10]}},{{g[10]}}, {{b[10]}})' class="table_on_the_left">11</td>
+                <td style = 'background-color:rgb({{r[11]}},{{g[11]}}, {{b[11]}})'class="table_on_the_left">12</td>
+                <td style = 'background-color:rgb({{r[12]}},{{g[12]}}, {{b[12]}})'class="table_on_the_left">13</td>
+                <td style = 'background-color:rgb({{r[13]}},{{g[13]}}, {{b[13]}})'class="table_on_the_left">14</td>
+                <td style = 'background-color:rgb({{r[14]}},{{g[14]}}, {{b[14]}})'class="table_on_the_left">15</td>
             </tr>
             <tr>
-                <td style = 'background-color:rgb({{r16}},{{g16}}, {{b16}})'class="table_on_the_left">16</td>
-                <td style = 'background-color:rgb({{r17}},{{g17}}, {{b17}})'class="table_on_the_left">17</td>
-                <td style = 'background-color:rgb({{r18}},{{g18}}, {{b18}})'class="table_on_the_left">18</td>
-                <td style = 'background-color:rgb({{r19}},{{g19}}, {{b19}})'class="table_on_the_left">19</td>
-                <td style = 'background-color:rgb({{r20}},{{g20}}, {{b20}})'class="table_on_the_left">20</td>
+                <td style = 'background-color:rgb({{r[15]}},{{g[15]}}, {{b[15]}})'class="table_on_the_left">16</td>
+                <td style = 'background-color:rgb({{r[16]}},{{g[16]}}, {{b[16]}})'class="table_on_the_left">17</td>
+                <td style = 'background-color:rgb({{r[17]}},{{g[17]}}, {{b[17]}})'class="table_on_the_left">18</td>
+                <td style = 'background-color:rgb({{r[18]}},{{g[18]}}, {{b[18]}})'class="table_on_the_left">19</td>
+                <td style = 'background-color:rgb({{r[19]}},{{g[19]}}, {{b[19]}})'class="table_on_the_left">20</td>
             </tr>
             <tr>
-                <td style = 'background-color:rgb({{r21}},{{g21}}, {{b21}})'class="table_on_the_left">21</td>
-                <td style = 'background-color:rgb({{r22}},{{g22}}, {{b22}})'class="table_on_the_left">22</td>
-                <td style = 'background-color:rgb({{r23}},{{g23}}, {{b23}})'class="table_on_the_left">23</td>
-                <td style = 'background-color:rgb({{r24}},{{g24}}, {{b24}})'class="table_on_the_left">24</td>
-                <td style = 'background-color:rgb({{r25}},{{g25}}, {{b25}})'class="table_on_the_left">25</td>
+                <td style = 'background-color:rgb({{r[20]}},{{g[20]}}, {{b[20]}})'class="table_on_the_left">21</td>
+                <td style = 'background-color:rgb({{r[21]}},{{g[21]}}, {{b[21]}})'class="table_on_the_left">22</td>
+                <td style = 'background-color:rgb({{r[22]}},{{g[22]}}, {{b[22]}})'class="table_on_the_left">23</td>
+                <td style = 'background-color:rgb({{r[23]}},{{g[23]}}, {{b[23]}})'class="table_on_the_left">24</td>
+                <td style = 'background-color:rgb({{r[24]}},{{g[24]}}, {{b[24]}})'class="table_on_the_left">25</td>
             </tr>
         </table>
-  
-
-    <table id="table_on_the_right">
-        <tr><th colspan="5">Reference</th></tr>
-        <tr>
-            <th class="number">1</th>
-            <th class="number">2</th>
-            <th class="number">3</th>
-            <th class="number">4</th>
-            <th class="number">5</th>
-        </tr>
-        <tr>
-            <th class="number">6</th>
-            <th class="number">7</th>
-            <th class="number">8</th>
-            <th class="number">9</th>
-            <th class="number">50</th>
-        </tr>
-        <tr>
-            <th class="number">11</th>
-            <th class="number">12</th>
-            <th class="number">13</th>
-            <th class="number">14</th>
-            <th class="number">15</th>
-        </tr>
-        <tr>
-            <th class="number">16</th>
-            <th class="number">17</th>
-            <th class="number">18</th>
-            <th class="number">19</th>
-            <th class="number">20</th>
-        </tr>
-        <tr>
-            <th class="number">21</th>
-            <th class="number">22</th>
-            <th class="number">23</th>
-            <th class="number">24</th>
-            <th class="number">25</th>
-        </tr>
-    </table>
 </div>
-<!-- <br>
-<br>
-<br>
-<br> -->
-<!-- <br>
-<br>
-<br>
-<br> -->
 <br><br><br><br><br><br><br><br><br>
 
 <div class="content">

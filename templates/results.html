@@ -39,13 +39,17 @@
         }
         
         #Product1{
-            transform: translateX(30%) translateY(0%);
+             position: static;
+             display: inline-block;
         }
         #Product2{
-            transform: translateX(160%) translateY(-100%);
+            position: static;
+            display: inline-block;
+
         }
         #Product3{
-            transform: translateX(300%) translateY(-200%);
+            position: relative;
+            display: inline-block;
         }
         h3{
             text-align: center;
@@ -70,7 +74,6 @@
 
 <table id="picture" class="original_image">
         <tr><th colspan="5">Original Image</th>
-            <!-- <th colspan="5" id="pixel">Pixel</th> -->
         </tr>
          <tr>
             <th><img src="{{ url_for('static', filename=filename)}}" width="50px"> </th>
