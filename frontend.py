@@ -16,8 +16,6 @@ ALLOWED_UPDATES = set(['csv', 'xls'])
 
 app.config['DEBUG'] = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-# app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-# app.config["CACHE_TYPE"] = "null"
 
 app.secret_key = "tea"
 
@@ -96,11 +94,5 @@ def updatepage():
             return render_template('success.html')
     return render_template('updatepage.html')
 
-# No caching at all for API endpoints.
-@app.after_request
-def add_header(response):
-    response.cache_control.max_age = 300
-    return response
-
-# if __name__ == '__main__':
-#     app.run()
+if __name__ == '__main__':
+    app.run()
